@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Producto from "./components/Producto";
 
 function App() {
+
+  const [productos, guardarProductos] = useState([
+    {id:1, articulo: " Planchita de cabello Elegance Digital",precio:8800},
+    {id:2, articulo: " Secador de pelo Lumina lon",precio:7300},
+    {id:3, articulo: " Cortadora pelo Multi-slyler G625",precio:5030},
+    {id:4, articulo: " Cepillo eléctronico Innova Extreme Keration",precio:3840},
+    {id:5, articulo: " Rizadora de pelo Tourmaline",precio:3680}
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <h1>Productos de belleza</h1>
+      {productos.map(producto => 
+      (
+        <Producto 
+        producto = {producto}
+        />
+      )
+        )}
+      <Footer />
     </div>
   );
 }
