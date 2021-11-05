@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Changuito from "./components/Changuito";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Producto from "./components/Producto";
@@ -13,6 +14,8 @@ function App() {
     {id:5, articulo: " Rizadora de pelo Tourmaline",precio:3680}
   ]);
 
+  const [changuito, agregarProducto] = useState([])
+
   return (
     <div>
       <Header />
@@ -20,10 +23,18 @@ function App() {
       {productos.map(producto => 
       (
         <Producto 
-        producto = {producto}
+          key = {producto.id}
+          producto = {producto}
+          productos ={productos}
+          changuito = {changuito}
+          agregarProducto={agregarProducto}
         />
       )
-        )}
+      )}
+      <Changuito 
+      changuito ={changuito}
+      agregarProducto={agregarProducto}
+      />
       <Footer />
     </div>
   );
